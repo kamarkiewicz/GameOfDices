@@ -1,0 +1,33 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[cm]{fullpage} % wąskie marginesy 
+\usepackage{polski}
+\usepackage[utf8]{inputenc} 
+
+\title{Game of Dices \\ \small{Specyfikacja funkcjonalna}}
+\author{Kamil Markiewicz}
+
+\begin{document}
+\maketitle
+
+% \begin{abstract}
+% Głównymi założeniami jest . 
+% \end{abstract}
+
+\section{Opis ogólny}\label{sec:general}
+Przedmiotem specyfikacji jest strategiczna gra turowa. Celem gracza jest kontrolowanie wszystkich elementów mapy, poprzez zdobycie ich w walce. System walki w całości bazuje na rzutach kośćmi. Gra przeznaczona jest na~platformy Windows, i~Linux. Możliwa obsługa systemu Mac~OS~X.
+
+\section{Użyte biblioteki}\label{sec:libs}
+Aplikacja korzysta z wieloplatformowych, ogólnodostępnych bibliotek, takich jak CSFML (port C biblioteki SFML służącej do obsługi grafiki, dźwięku, sieci itp.) oraz interpretera języka Lua.
+
+\section{Źródło danych wejściowych}\label{sec:input}
+Przewidziana jest obsługa myszki oraz klawiatury. Aplikacja ma również dostęp do plików zawierających ranking graczy i konfigurację.
+
+\section{Dane wyjściowe}\label{sec:output}
+Stany gry rysowane są w oknie na ekranie monitora. Dane, które mogą przydać~się przy~kolejnym uruchomieniu aplikacji są~zapisane w~pliku najlepiej w~postaci jawnej (tzn. łatwo dostępnej z poziomu np. notatnika).
+
+\section{Scenariusz działania}\label{sec:script}
+Gra przeznaczona jest dla od dwóch do sześciu graczy.
+Po uruchomieniu programu, nalezy wcisnąć przycisk "Nowa Gra", aby~zainicjować rozgrywkę. Wygenerowana zostaje plansza, zawierająca pola o~losowej ilości kostek 6-ściennych.
+Gra~polega na toczeniu bitew pomiędzy polami graczy, których wynik zależny jest od~ilości oczek wyrzuconych w czasie walki. Jedyną możliwością przejęcia pól przeciwnika jest atak. Przejęcie następuje wtedy i tylko wtedy, gdy uzyskamy w~rzucie więcej oczek niż broniący terenu gracz. W~przeciwnym wypadku na~polu, z~którego atakował agresor pozostaje jedna kostka. Nie~ma ograniczenia ilości walk na~turę. Po~każdej turze do losowych terenów gracza, dodawana jest liczba kostek, równa największemu skupisku jego terenów. Celem gry~jest przejęcie wszystkich terytoriów na~planszy. Gracz, który wygra, na~końcu jest informowany o~tym fakcie odpowiednim powiadomieniem.
+
+\end{document}
